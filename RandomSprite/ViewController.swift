@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         springAnimationView.delay = 0.3
+        springButton.setTitle("Next \(animation.name)", for: .normal)
     }
     
     
@@ -35,8 +36,8 @@ class ViewController: UIViewController {
         
         animationLabel.text = animation.name
         curveLabel.text = animation.curve
-        forceLabel.text = String(Float(animation.force))
-        durationLabel.text = String(Float(animation.duration))
+        forceLabel.text = String(round(Float(animation.force) * 1000) / 1000)
+        durationLabel.text = String(round(Float(animation.duration) * 1000) / 1000)
         
         animation = Animation.getRandomAnimation()
         
